@@ -1,6 +1,6 @@
 class DirectorySerializer
   include JSONAPI::Serializer
-  attributes :name
+  attributes :name, :description
 
 	has_many :categories, serializer: CategorySerializer
 end
