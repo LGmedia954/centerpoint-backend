@@ -1,0 +1,193 @@
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220420013319)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "firstname" varchar, "lastname" varchar, "title" varchar, "email" varchar, "password_digest" varchar, "organization_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220420013319"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOrganizations (20220420151724)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "organizations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "suite" varchar, "city" varchar, "state" varchar, "zip" varchar, "phone" varchar, "mission" text, "website" varchar, "category_id" integer, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220420151724"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCategories (20220420162153)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "directory_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220420162153"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDirectories (20220421022807)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "directories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220421022807"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-04-21 13:26:47.644477"], ["updated_at", "2022-04-21 13:26:47.644477"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" WHERE "organizations"."name" = ? LIMIT ?[0m  [["name", "LG Media"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOrganization Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" WHERE "organizations"."name" = ? LIMIT ?[0m  [["name", "LG Media"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("firstname", "lastname", "title", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["firstname", "Leslie"], ["lastname", "Test"], ["title", "Web Developer"], ["email", "lgworldcom@gmail.com"], ["password_digest", "$2a$12$omIRcAzafGC3uGY2vTef0.y9CPojIDMg42WUdbLkOhZwSlPmrB.ye"], ["created_at", "2022-04-21 15:20:10.488583"], ["updated_at", "2022-04-21 15:20:10.488583"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" WHERE "organizations"."name" = ? LIMIT ?[0m  [["name", "LG Media"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" WHERE "organizations"."name" = ? LIMIT ?[0m  [["name", "LG Media"], ["LIMIT", 1]]
+  [1m[36mOrganization Create (0.4ms)[0m  [1m[32mINSERT INTO "organizations" ("name", "address", "suite", "city", "state", "zip", "phone", "mission", "website", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "LG Media"], ["address", "990 Stewart Avenue"], ["suite", "7th Floor"], ["city", "Garden City"], ["state", "NY"], ["zip", "11530"], ["phone", "516-833-5506"], ["mission", ""], ["website", "https://www.lg-mediagroup.com/"], ["created_at", "2022-04-21 15:23:40.073373"], ["updated_at", "2022-04-21 15:23:40.073373"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "organization_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["organization_id", 1], ["updated_at", "2022-04-21 15:26:49.288062"], ["id", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Create (0.4ms)[0m  [1m[32mINSERT INTO "directories" ("name", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Business Directory"], ["description", "We are here to support our member businesses and the community we serve."], ["created_at", "2022-04-21 15:39:16.799260"], ["updated_at", "2022-04-21 15:39:16.799260"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDirectory Load (0.2ms)[0m  [1m[34mSELECT "directories".* FROM "directories" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Advertising & Media"], ["directory_id", 1], ["created_at", "2022-04-21 15:46:47.886619"], ["updated_at", "2022-04-21 15:46:47.886619"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" ORDER BY "directories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOrganization Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" WHERE "organizations"."name" = ? AND "organizations"."id" != ? LIMIT ?[0m  [["name", "LG Media"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mOrganization Update (0.3ms)[0m  [1m[33mUPDATE "organizations" SET "category_id" = ?, "updated_at" = ? WHERE "organizations"."id" = ?[0m  [["category_id", 1], ["updated_at", "2022-04-21 15:50:58.801315"], ["id", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mOrganization Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "organizations" WHERE "organizations"."name" = ? AND "organizations"."id" != ? LIMIT ?[0m  [["name", "LG Media"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mOrganization Update (0.3ms)[0m  [1m[33mUPDATE "organizations" SET "user_id" = ?, "updated_at" = ? WHERE "organizations"."id" = ?[0m  [["user_id", 1], ["updated_at", "2022-04-21 15:52:14.571913"], ["id", 1]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" ORDER BY "directories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Arts, Culture & Entertainment"], ["directory_id", 1], ["created_at", "2022-04-21 15:58:46.759863"], ["updated_at", "2022-04-21 15:58:46.759863"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Business & Professional Services"], ["directory_id", 1], ["created_at", "2022-04-21 15:59:03.489456"], ["updated_at", "2022-04-21 15:59:03.489456"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Family, Community & Civic Organizations"], ["directory_id", 1], ["created_at", "2022-04-21 15:59:32.684004"], ["updated_at", "2022-04-21 15:59:32.684004"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Finance & Insurance"], ["directory_id", 1], ["created_at", "2022-04-21 15:59:53.418161"], ["updated_at", "2022-04-21 15:59:53.418161"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Government, Education & Individuals"], ["directory_id", 1], ["created_at", "2022-04-21 16:00:20.268953"], ["updated_at", "2022-04-21 16:00:20.268953"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Health Care"], ["directory_id", 1], ["created_at", "2022-04-21 16:00:40.433979"], ["updated_at", "2022-04-21 16:00:40.433979"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Home & Garden"], ["directory_id", 1], ["created_at", "2022-04-21 16:01:01.145722"], ["updated_at", "2022-04-21 16:01:01.145722"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Legal"], ["directory_id", 1], ["created_at", "2022-04-21 16:01:25.176420"], ["updated_at", "2022-04-21 16:01:25.176420"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lodging & Travel"], ["directory_id", 1], ["created_at", "2022-04-21 16:01:45.494459"], ["updated_at", "2022-04-21 16:01:45.494459"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Manufacturing, Production & Wholesale"], ["directory_id", 1], ["created_at", "2022-04-21 16:02:03.529124"], ["updated_at", "2022-04-21 16:02:03.529124"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Personal Services & Care"], ["directory_id", 1], ["created_at", "2022-04-21 16:02:16.815436"], ["updated_at", "2022-04-21 16:02:16.815436"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pets & Veterinary"], ["directory_id", 1], ["created_at", "2022-04-21 16:02:50.904302"], ["updated_at", "2022-04-21 16:02:50.904302"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Real Estate, Mortgage Services, Closing Attorneys"], ["directory_id", 1], ["created_at", "2022-04-21 16:03:08.387522"], ["updated_at", "2022-04-21 16:03:08.387522"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Real Estate, Moving & Storage"], ["directory_id", 1], ["created_at", "2022-04-21 16:03:21.224205"], ["updated_at", "2022-04-21 16:03:21.224205"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Religious Organizations"], ["directory_id", 1], ["created_at", "2022-04-21 16:03:32.417845"], ["updated_at", "2022-04-21 16:03:32.417845"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Restaurants, Food & Beverages"], ["directory_id", 1], ["created_at", "2022-04-21 16:04:01.005637"], ["updated_at", "2022-04-21 16:04:01.005637"]]
+  [1m[36mTRANSACTION (24.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Shopping & Specialty Retail"], ["directory_id", 1], ["created_at", "2022-04-21 16:04:17.520839"], ["updated_at", "2022-04-21 16:04:17.520839"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sports & Recreation"], ["directory_id", 1], ["created_at", "2022-04-21 16:04:33.192988"], ["updated_at", "2022-04-21 16:04:33.192988"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("name", "directory_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Transportation"], ["directory_id", 1], ["created_at", "2022-04-21 16:04:44.173998"], ["updated_at", "2022-04-21 16:04:44.173998"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m

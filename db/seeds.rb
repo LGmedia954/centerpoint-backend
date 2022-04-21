@@ -8,11 +8,11 @@
 
 
 
-# User.create(firstname: "Les", lastname: "Test", title: "Web Developer", email: "lgworldcom@gmail.com", password: "password", organization_id: 1)
+# les = User.create(firstname: "Leslie", lastname: "Test", title: "Web Developer", email: "lgworldcom@gmail.com", password: "password")
 
-# Organization.create(name: "LG Media", address: "990 Stewart Avenue", suite: "7th Floor", city: "Garden City", state: "NY", zip: "11530", phone: "516-833-5506", mission: "", website: "https://www.lg-mediagroup.com/", category_id: 1)
+# lg = Organization.create(name: "LG Media", address: "990 Stewart Avenue", suite: "7th Floor", city: "Garden City", state: "NY", zip: "11530", phone: "516-833-5506", mission: "", website: "https://www.lg-mediagroup.com/")
 
-# Directory.create(name: "Business Directory", description: "We are here to support our member businesses and the community we serve.")
+# bdir = Directory.create(name: "Business Directory", description: "We are here to support our member businesses and the community we serve.")
 
 
 
@@ -26,6 +26,7 @@
 # Category.create(name: "Home & Garden", directory_id: 1)
 # Category.create(name: "Legal", directory_id: 1)
 # Category.create(name: "Lodging & Travel", directory_id: 1)
+
 # Category.create(name: "Manufacturing, Production & Wholesale", directory_id: 1)
 # Category.create(name: "Personal Services & Care", directory_id: 1)
 # Category.create(name: "Pets & Veterinary", directory_id: 1)
@@ -36,3 +37,8 @@
 # Category.create(name: "Shopping & Specialty Retail", directory_id: 1)
 # Category.create(name: "Sports & Recreation", directory_id: 1)
 # Category.create(name: "Transportation", directory_id: 1)
+
+
+
+# les.organzation_id: 1
+# lg.category_id: 1
