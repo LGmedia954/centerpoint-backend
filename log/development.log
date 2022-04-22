@@ -394,3 +394,294 @@ Processing by Api::V1::OrganizationsController#index as HTML
 Completed 200 OK in 15ms (Views: 8.6ms | ActiveRecord: 0.8ms | Allocations: 10721)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2022-04-22 11:33:43 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 5103)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-04-22 11:34:07 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "email"=>"lgworldcom@gmail.com", "session"=>{"username"=>"", "password"=>"[FILTERED]", "email"=>"lgworldcom@gmail.com"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 232ms (ActiveRecord: 0.3ms | Allocations: 5269)
+
+
+  
+SyntaxError (/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+      suite: user.organization.suite,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+      city: user.organization.city,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+      state: user.organization.state,
+      ^~~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+      zip: user.organization.zip
+      ^~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+      phone: user.organization.phone
+           ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+      mission: user.organization.mission
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+      website: user.organization.website
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+    }
+    ^):
+  
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for ::1 at 2022-04-22 11:34:42 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "email"=>"lgworldcom@gmail.com", "session"=>{"username"=>"", "password"=>"[FILTERED]", "email"=>"lgworldcom@gmail.com"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 0.1ms | Allocations: 3498)
+
+
+  
+SyntaxError (/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+      suite: user.organization.suite,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+      city: user.organization.city,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+      state: user.organization.state,
+      ^~~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+      zip: user.organization.zip
+      ^~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+      phone: user.organization.phone
+           ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+      mission: user.organization.mission
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+      website: user.organization.website
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+    }
+    ^):
+  
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for ::1 at 2022-04-22 11:36:13 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"username"=>"", "password"=>"[FILTERED]", "email"=>"lgworldcom@gmail.com", "session"=>{"username"=>"", "password"=>"[FILTERED]", "email"=>"lgworldcom@gmail.com"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 0.1ms | Allocations: 3497)
+
+
+  
+SyntaxError (/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+      suite: user.organization.suite,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+      city: user.organization.city,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+      state: user.organization.state,
+      ^~~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+      zip: user.organization.zip
+      ^~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+      phone: user.organization.phone
+           ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+      mission: user.organization.mission
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+      website: user.organization.website
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+    }
+    ^):
+  
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started GET "/api/v1/get_current_user" for ::1 at 2022-04-22 11:36:17 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 607)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-04-22 11:37:08 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 626)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-04-22 11:37:47 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 194ms (ActiveRecord: 0.1ms | Allocations: 3481)
+
+
+  
+SyntaxError (/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+      suite: user.organization.suite,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+      city: user.organization.city,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+      state: user.organization.state,
+      ^~~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+      zip: user.organization.zip
+      ^~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+      phone: user.organization.phone
+           ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+      mission: user.organization.mission
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+      website: user.organization.website
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+    }
+    ^):
+  
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started GET "/api/v1/get_current_user" for ::1 at 2022-04-22 11:38:17 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 607)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-04-22 11:44:54 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 0.3ms | Allocations: 3953)
+
+
+  
+SyntaxError (/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+      suite: user.organization.suite,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+      city: user.organization.city,
+      ^~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+      state: user.organization.state,
+      ^~~~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+      zip: user.organization.zip
+      ^~~~
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+      phone: user.organization.phone
+           ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+      mission: user.organization.mission
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+      website: user.organization.website
+             ^
+/Users/lesliegonzalez/Development/code/centerpoint-backend/app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+    }
+    ^):
+  
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/serializers/user_serializer.rb:10: syntax error, unexpected tIDENTIFIER, expecting '}'
+app/serializers/user_serializer.rb:11: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:12: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:13: syntax error, unexpected tLABEL, expecting '='
+app/serializers/user_serializer.rb:14: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:15: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:16: syntax error, unexpected ':', expecting end
+app/serializers/user_serializer.rb:17: syntax error, unexpected '}', expecting end
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
