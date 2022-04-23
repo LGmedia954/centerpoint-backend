@@ -1,10 +1,22 @@
 class Api::V1::OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :update, :destroy]
+  before_action :set_organization, only: [:index, :show, :update, :destroy]
 
   def index
     @organizations = Organization.all
 
     render json: @organizations
+  end
+
+  def mybiz
+    if logged_in?
+      @organizations = current_user.organizations
+
+      render json: OrganizationSerializer.new(@organizations)
+    else
+      render json: {
+      error: "You must be logged in to see this"
+    }
+    end
   end
 
   def show
