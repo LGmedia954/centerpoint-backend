@@ -1,7 +1,7 @@
 class UserSerializer
   include JSONAPI::Serializer
   attributes :firstname, :lastname, :title, :email
-  belongs_to :organization
+  belongs_to :organization, serializer: OrganizationSerializer
 
   attribute :organization do |user|
     {
