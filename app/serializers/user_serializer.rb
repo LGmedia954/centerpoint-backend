@@ -6,13 +6,13 @@ class UserSerializer
   attribute :organization do |user|
     {
       name: user.organization.name,
-      address: user.organization.address
+      address: user.organization.address,
       suite: user.organization.suite,
       city: user.organization.city,
       state: user.organization.state,
-      zip: user.organization.zip
-      phone: user.organization.phone
-      mission: user.organization.mission
+      zip: user.organization.zip,
+      phone: user.organization.phone,
+      mission: user.organization.mission,
       website: user.organization.website
     }
   end
