@@ -1,4 +1,5 @@
 class Api::V1::OrganizationsController < ApplicationController
+  before_action :set_organization, only: [:show, :update, :destroy]
 
   def index
     @organizations = Organization.all
