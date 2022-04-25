@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :organizations
       resources :categories
       resources :directories
+      resources :announcements
 
 
 

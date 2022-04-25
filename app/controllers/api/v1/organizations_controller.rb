@@ -2,15 +2,9 @@ class Api::V1::OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :mybiz, :update, :destroy]
 
   def index
-    if logged_in?
-      @organizations = Organization.all.by_name
+    @organizations = Organization.all
 
-      render json: @organizations
-    else
-      render json: {
-        error: "You must be logged in to view this list"
-      }
-    end
+    render json: @organizations
   end
 
   def mybiz

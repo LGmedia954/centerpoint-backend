@@ -1314,3 +1314,83 @@ Processing by Api::V1::DirectoriesController#index as HTML
 Completed 200 OK in 35ms (Views: 4.2ms | ActiveRecord: 0.8ms | Allocations: 4731)
 
 
+Started GET "/api/v1/users" for ::1 at 2022-04-25 17:33:47 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 404 Not Found in 10ms (ActiveRecord: 0.4ms | Allocations: 1921)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Started GET "/api/v1/users" for ::1 at 2022-04-25 17:34:19 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.9ms | Allocations: 7538)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-04-25 17:34:40 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 2598)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-04-25 17:35:33 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/models/organization.rb:11:in `block in <class:Organization>'
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."name" ASC[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 1.3ms | Allocations: 12089)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-04-25 17:36:05 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 6822)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-04-25 17:36:32 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" ORDER BY "organizations"."name" ASC[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 12ms (Views: 7.6ms | ActiveRecord: 0.8ms | Allocations: 10083)
+
+
+Started GET "/api/v1/directories" for ::1 at 2022-04-25 17:37:01 -0400
+Processing by Api::V1::DirectoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/directories_controller.rb:6:in `index'
+  [1m[36mDirectory Load (1.0ms)[0m  [1m[34mSELECT "directories".* FROM "directories"[0m
+  ↳ app/controllers/api/v1/directories_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 1.7ms | Allocations: 5632)
+
+
+Started GET "/api/v1/categories" for ::1 at 2022-04-25 17:37:16 -0400
+Processing by Api::V1::CategoriesController#index as HTML
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/api/v1/categories_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.7ms | Allocations: 6525)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (11.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAnnouncements (20220425214513)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (25.9ms)[0m  [1m[35mCREATE TABLE "announcements" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "user_id" integer, "organization_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (16.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220425214513"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
