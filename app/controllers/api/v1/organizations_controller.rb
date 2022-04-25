@@ -1,10 +1,16 @@
 class Api::V1::OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :update]
+  before_action :set_organization, only: [:show, :mybiz, :update, :destroy]
 
   def index
-    @organizations = Organization.all
+    if logged_in?
+      @organizations = Organization.all.by_name
 
-    render json: @organizations
+      render json: @organizations
+    else
+      render json: {
+        error: "You must be logged in to view this list"
+      }
+    end
   end
 
   def mybiz
@@ -14,7 +20,7 @@ class Api::V1::OrganizationsController < ApplicationController
       render json: OrganizationSerializer.new(@organizations)
     else
       render json: {
-        error: "You must be logged in to see this"
+        error: "You must be logged in to access this"
       }
     end
   end
@@ -46,8 +52,6 @@ class Api::V1::OrganizationsController < ApplicationController
       render json: error_resp, status: :unprocessable_entity
     end
   end
-
-  # I might opt to leave the delete disabled.
 
   def destroy
     if @organization.destroy
