@@ -1256,3 +1256,31 @@ Processing by Api::V1::SessionsController#get_current_user as */*
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 608)
 
 
+Started GET "/api/v1/get_current_user" for ::1 at 2022-04-25 15:51:25 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 5108)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-04-25 15:51:30 -0400
+Processing by Api::V1::UsersController#index as HTML
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 316)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Started GET "/api/v1/users" for ::1 at 2022-04-25 15:51:40 -0400
+Processing by Api::V1::UsersController#index as HTML
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms | Allocations: 168)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User without an ID):
+  
+app/controllers/api/v1/users_controller.rb:45:in `set_user'

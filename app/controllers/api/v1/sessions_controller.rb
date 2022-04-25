@@ -18,7 +18,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(current_user)
     else
       render json: {
-        error: "You Must Log In To View This App"
+        error: "Please Log In To View This App"
       }
     end
   end

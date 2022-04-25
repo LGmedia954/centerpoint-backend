@@ -1,5 +1,5 @@
 class Api::V1::OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:index, :show, :update, :destroy]
+  before_action :set_organization, only: [:show, :update]
 
   def index
     @organizations = Organization.all
@@ -14,41 +14,50 @@ class Api::V1::OrganizationsController < ApplicationController
       render json: OrganizationSerializer.new(@organizations)
     else
       render json: {
-      error: "You must be logged in to see this"
-    }
+        error: "You must be logged in to see this"
+      }
     end
   end
 
   def show
-    organization_json = OrganizationSerializer.new(@organization).serialized_json
-
-    render json: organization_json
+    render json: @organization
   end
 
   def create
-    @organization = Organization.new(organization_params)
+    @organization = current_user.organizations.build(organization_params)
 
     if @organization.save
-      session[:organization_id] = @organization.id
       render json: OrganizationSerializer.new(@organization), status: :created
     else
-      resp = {
+      error_resp = {
         error: @organization.errors.full_messages.to_sentence
       }
-      render json: resp, status: :unprocessable_entity
+      render json: error_resp, status: :unprocessable_entity
     end
   end
 
   def update
     if @organization.update(organization_params)
-      render json: @organization
+      render json: OrganizationSerializer.new(@organization), status: :ok
     else
-      render json: @organization.errors, status: :unprocessable_entity
+      error_resp = {
+        error: @organization.errors.full_messages.to_sentence
+      }
+      render json: error_resp, status: :unprocessable_entity
     end
   end
 
+  # I might opt to leave the delete disabled.
+
   def destroy
-    @organization.destroy
+    if @organization.destroy
+      render json:  { data: "Organization Deleted" }, status: :ok
+    else
+      error_resp = {
+        error: "Organization not found and not destroyed"
+      }
+      render json: error_resp, status: :unprocessable_entity
+    end
   end
 
   private
