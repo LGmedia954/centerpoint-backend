@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
   get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
 
-  get "/api/v1/about"
+  get "/api/v1/about", to: "api/v1/static#about"
+  get "/api/v1/mybiz", to: "api/v1/organizations#mybiz"
 
   namespace :api do
     namespace :v1 do
@@ -14,8 +15,6 @@ Rails.application.routes.draw do
       resources :categories
       resources :directories
       resources :announcements
-
-
 
     end
   end
