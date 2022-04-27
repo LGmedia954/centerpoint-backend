@@ -1,4 +1,5 @@
 class Api::V1::DirectoriesController < ApplicationController
+  before_action :set_directory, only: [:show, :update, :destroy]
 
   def index
     @directories = Directory.all
@@ -13,7 +14,7 @@ class Api::V1::DirectoriesController < ApplicationController
   end
 
   # Business Directory is our default listing.
-  # Additional directories can be created for committees, sponsors, participants, etc.
+  # Additional directories for committees, sponsors, participants...
 
   def create
     @directory = Directory.new(directory_params)
