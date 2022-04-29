@@ -9,5 +9,13 @@ class Api::V1::StaticController < ApplicationController
     end
   end
 
+  def contact
+    if logged_in?
+      render "contact"
+    else
+      message: "Please Log In"
+    end
+  end
+
 end
 
