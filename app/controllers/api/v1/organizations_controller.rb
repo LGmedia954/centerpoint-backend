@@ -1,5 +1,5 @@
 class Api::V1::OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:mybiz, :show, :update, :destroy]
+  before_action :set_organization, only: [:show, :update, :destroy]
 
   def index
     @organizations = Organization.all
@@ -9,7 +9,7 @@ class Api::V1::OrganizationsController < ApplicationController
 
   def mybiz
     if logged_in?
-      @organizations = current_user.organizations
+      @organizations = current_user.organizations.find(organization_params)
 
       render json: OrganizationSerializer.new(@organizations)
     else
