@@ -18,15 +18,16 @@ class Api::V1::DirectoriesController < ApplicationController
 
   def create
     if logged_in?
-    @directory = Directory.new(directory_params)
+      @directory = Directory.new(directory_params)
 
-    if @directory.save
-      render json: DirectorySerializer.new(@directory), status: :created
-    else
-      resp = {
-        error: @directory.errors.full_messages.to_sentence
-      }
-      render json: resp, status: :unprocessable_entity
+      if @directory.save
+        render json: DirectorySerializer.new(@directory), status: :created
+      else
+        resp = {
+          error: @directory.errors.full_messages.to_sentence
+        }
+        render json: resp, status: :unprocessable_entity
+      end
     end
   end
 
@@ -43,7 +44,7 @@ class Api::V1::DirectoriesController < ApplicationController
 
   def destroy
     if @directory.destroy
-      render json:  { data: "Directory Deleted" }, status: :ok
+      render json:  { data: "Directory deleted." }, status: :ok
     else
       error_resp = {
         error: "Directory not found and not destroyed."
@@ -55,7 +56,8 @@ class Api::V1::DirectoriesController < ApplicationController
   private
 
     def set_directory
-      @directory = Directory.find(params[:id])
+      # @directory = Directory.find(params[:id])
+      @directory = Directory.find_or_create_by(id: params[:id])
     end
 
     def directory_params

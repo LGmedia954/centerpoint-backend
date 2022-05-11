@@ -7,14 +7,9 @@ class Api::V1::AnnouncementsController < ApplicationController
     render json: @announcements
   end
 
-  def show
-    render json: @announcement
-  end
-
   def myAnnouncements
     if logged_in?
-      # @announcements = current_user.announcements
-      @announcements = current_user.announcements.find(announcement_params)
+      @announcements = current_user.announcements
 
       render json: AnnouncementSerializer.new(@announcements)
     else
@@ -24,16 +19,22 @@ class Api::V1::AnnouncementsController < ApplicationController
     end
   end
 
-  def create
-    @announcement = current_user.announcements.build(announcement_params)
+  def show
+    render json: @announcement
+  end
 
-    if @announcement.save
-      render json: AnnouncementSerializer.new(@announcement), status: :created
-    else
-      error_resp = {
-        error: @announcement.errors.full_messages.to_sentence
-      }
-      render json: error_resp, status: :unprocessable_entity
+  def create
+    if logged_in?
+      @announcement = current_user.announcements.build(announcement_params)
+
+      if @announcement.save
+        render json: AnnouncementSerializer.new(@announcement), status: :created
+      else
+        error_resp = {
+          error: @announcement.errors.full_messages.to_sentence
+        }
+        render json: error_resp, status: :unprocessable_entity
+      end
     end
   end
 
@@ -50,7 +51,7 @@ class Api::V1::AnnouncementsController < ApplicationController
 
   def destroy
     if @announcement.destroy
-      render json:  { data: "Announcement Deleted" }, status: :ok
+      render json:  { data: "Announcement deleted." }, status: :ok
     else
       error_resp = {
         error: "Announcement not found and not destroyed."
@@ -62,7 +63,8 @@ class Api::V1::AnnouncementsController < ApplicationController
   private
 
     def set_announcement
-      @announcement = Announcement.find(params[:id])
+      # @announcement = Announcement.find(params[:id])
+      @organization = Announcement.find_or_create_by(id: params[:id])
     end
 
     def announcement_params

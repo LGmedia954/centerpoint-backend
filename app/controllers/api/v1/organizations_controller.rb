@@ -9,8 +9,7 @@ class Api::V1::OrganizationsController < ApplicationController
 
   def mybiz
     if logged_in?
-      # @organizations = current_user.organizations
-      @organizations = current_user.organizations.find(organization_params)
+      @organizations = current_user.organizations
 
       render json: OrganizationSerializer.new(@organizations)
     else
@@ -25,15 +24,17 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = current_user.organizations.build(organization_params)
+    if logged_in?
+      @organization = current_user.organizations.build(organization_params)
 
-    if @organization.save
-      render json: OrganizationSerializer.new(@organization), status: :created
-    else
-      error_resp = {
-        error: @organization.errors.full_messages.to_sentence
-      }
-      render json: error_resp, status: :unprocessable_entity
+      if @organization.save
+        render json: OrganizationSerializer.new(@organization), status: :created
+      else
+        error_resp = {
+          error: @organization.errors.full_messages.to_sentence
+        }
+        render json: error_resp, status: :unprocessable_entity
+      end
     end
   end
 
@@ -50,7 +51,7 @@ class Api::V1::OrganizationsController < ApplicationController
 
   def destroy
     if @organization.destroy
-      render json:  { data: "Organization Deleted" }, status: :ok
+      render json:  { data: "Organization deleted." }, status: :ok
     else
       error_resp = {
         error: "Organization not found and not destroyed."
@@ -62,7 +63,8 @@ class Api::V1::OrganizationsController < ApplicationController
   private
 
     def set_organization
-      @organization = Organization.find(params[:id])
+      # @organization = Organization.find(params[:id])
+      @organization = Organization.find_or_create_by(id: params[:id])
     end
 
     def organization_params
