@@ -9,7 +9,7 @@ class Api::V1::StaticController < ApplicationController
     end
   end
 
-  def contact
+  def news
     if logged_in?
       render "news"
     else

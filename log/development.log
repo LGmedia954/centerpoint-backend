@@ -6691,3 +6691,26 @@ Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms | Allocations: 1892)
   [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mAnnouncement Load (0.1ms)[0m  [1m[34mSELECT "announcements".* FROM "announcements" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/api/v1/announcements" for ::1 at 2022-05-11 19:26:03 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AnnouncementsController#index as HTML
+  [1m[36mAnnouncement Load (0.4ms)[0m  [1m[34mSELECT "announcements".* FROM "announcements"[0m
+  ↳ app/controllers/api/v1/announcements_controller.rb:7:in `index'
+Completed 200 OK in 19ms (Views: 10.3ms | ActiveRecord: 1.0ms | Allocations: 7856)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-11 19:26:23 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 0.7ms | Allocations: 11507)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-05-11 19:26:38 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.8ms | Allocations: 7465)
+
+
