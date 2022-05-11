@@ -11,6 +11,19 @@ class Api::V1::AnnouncementsController < ApplicationController
     render json: @announcement
   end
 
+  def myAnnouncements
+    if logged_in?
+      # @announcements = current_user.announcements
+      @announcements = current_user.announcements.find(announcement_params)
+
+      render json: AnnouncementSerializer.new(@announcements)
+    else
+      render json: {
+        error: "You must be logged in to access this."
+      }
+    end
+  end
+
   def create
     @announcement = current_user.announcements.build(announcement_params)
 
@@ -40,7 +53,7 @@ class Api::V1::AnnouncementsController < ApplicationController
       render json:  { data: "Announcement Deleted" }, status: :ok
     else
       error_resp = {
-        error: "Announcement not found and not destroyed"
+        error: "Announcement not found and not destroyed."
       }
       render json: error_resp, status: :unprocessable_entity
     end
