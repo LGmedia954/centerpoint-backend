@@ -6207,3 +6207,73 @@ Processing by Api::V1::SessionsController#create as */*
 Completed 200 OK in 202ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 678)
 
 
+Started GET "/api/v1/users" for ::1 at 2022-05-11 11:44:08 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 70ms (Views: 20.0ms | ActiveRecord: 0.8ms | Allocations: 10785)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-11 11:44:15 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 22ms (Views: 7.7ms | ActiveRecord: 0.7ms | Allocations: 9891)
+
+
+Started GET "/api/v1/myOrganizations" for ::1 at 2022-05-11 11:58:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/myOrganizations"):
+  
+Started GET "/api/v1/myBiz" for ::1 at 2022-05-11 11:58:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/myBiz"):
+  
+Started GET "/api/v1/organizations/myBiz" for ::1 at 2022-05-11 11:59:40 -0400
+Processing by Api::V1::OrganizationsController#show as HTML
+  Parameters: {"id"=>"myBiz"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:65:in `set_organization'
+  [1m[36mOrganization Load (1.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/organizations_controller.rb:65:in `set_organization'
+Completed 404 Not Found in 145ms (ActiveRecord: 1.4ms | Allocations: 4330)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Organization with 'id'=myBiz):
+  
+app/controllers/api/v1/organizations_controller.rb:65:in `set_organization'
+Started GET "/api/v1/user/organizations/myBiz" for ::1 at 2022-05-11 12:00:28 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/organizations/myBiz"):
+  
+Started GET "/api/v1/user/organizations" for ::1 at 2022-05-11 12:01:03 -0400
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:9:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/api/v1/user/organizations" for ::1 at 2022-05-11 12:07:32 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/user/organizations"):
+  
+Started GET "/favicon.ico" for ::1 at 2022-05-11 12:07:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/organizations/myBiz" for ::1 at 2022-05-11 12:07:46 -0400
+Processing by Api::V1::OrganizationsController#show as HTML
+  Parameters: {"id"=>"myBiz"}
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/organizations_controller.rb:65:in `set_organization'
+Completed 404 Not Found in 10ms (ActiveRecord: 0.6ms | Allocations: 4411)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Organization with 'id'=myBiz):
+  
+app/controllers/api/v1/organizations_controller.rb:65:in `set_organization'

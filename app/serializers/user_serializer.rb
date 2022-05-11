@@ -16,5 +16,5 @@ class UserSerializer
       website: user.organization.website
     }
   end
-  
+
 end
