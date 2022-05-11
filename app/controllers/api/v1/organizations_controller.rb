@@ -9,12 +9,13 @@ class Api::V1::OrganizationsController < ApplicationController
 
   def mybiz
     if logged_in?
+      # @organizations = current_user.organizations
       @organizations = current_user.organizations.find(organization_params)
 
       render json: OrganizationSerializer.new(@organizations)
     else
       render json: {
-        error: "You must be logged in to access this"
+        error: "You must be logged in to access this."
       }
     end
   end
@@ -52,7 +53,7 @@ class Api::V1::OrganizationsController < ApplicationController
       render json:  { data: "Organization Deleted" }, status: :ok
     else
       error_resp = {
-        error: "Organization not found and not destroyed"
+        error: "Organization not found and not destroyed."
       }
       render json: error_resp, status: :unprocessable_entity
     end

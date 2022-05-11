@@ -1,14 +1,14 @@
 class Api::V1::SessionsController < ApplicationController
 
   def create
-    @user = User.find_by(email: params[:session][:email].downcase)
+    @user = User.find_by(email: params[:session][:email])
 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       render json: UserSerializer.new(@user), status: :ok
     else
       render json: {
-        error: "Invalid Credentials"
+        error: "Invalid Credentials."
       }
     end
   end
@@ -18,7 +18,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(current_user)
     else
       render json: {
-        error: "Please Log In To View This App"
+        error: "Please Log In To View This App."
       }
     end
   end
@@ -26,7 +26,7 @@ class Api::V1::SessionsController < ApplicationController
   def destroy
     session.clear
     render json: {
-      notice: "Successfully Logged Out"
+      notice: "Successfully Logged Out."
     }, status: :ok
   end
 
