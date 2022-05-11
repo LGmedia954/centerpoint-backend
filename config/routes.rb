@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/api/v1/mybiz", to: "api/v1/organizations#mybiz"
   get "/api/v1/about", to: "api/v1/static#about"
   get "/api/v1/contact", to: "api/v1/static#contact"
+  get "/api/v1/announcements", to: "api/v1/announcements#index"
 
   namespace :api do
     namespace :v1 do

@@ -40,5 +40,9 @@
 
 
 
+Announcement.create(comment: "Welcome everyone. Can't wait to meet you!", user_id: 1, organization_id: 1)
+
+
+
 # les.organzation_id: 1
 # lg.category_id: 1
