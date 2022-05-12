@@ -19,7 +19,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: UserSerializer.new(current_user)
     else
       render json: {
-        # error: "Please Log In To View This App."
+        error: "Not Logged In."
       }
     end
   end
@@ -30,5 +30,5 @@ class Api::V1::SessionsController < ApplicationController
       notice: "Successfully Logged Out."
     }, status: :ok
   end
-
+  
 end

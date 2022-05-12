@@ -15,17 +15,15 @@ class Api::V1::DirectoriesController < ApplicationController
   # Additional directories for committees, sponsors, participants...
 
   def create
-    if logged_in?
-      @directory = Directory.new(directory_params)
+    @directory = current_user.directories.build(directory_params)
 
-      if @directory.save
-        render json: DirectorySerializer.new(@directory), status: :created
-      else
-        resp = {
-          error: @directory.errors.full_messages.to_sentence
-        }
-        render json: resp, status: :unprocessable_entity
-      end
+    if @directory.save
+      render json: DirectorySerializer.new(@directory), status: :created
+    else
+      error_resp = {
+        error: @directory.errors.full_messages.to_sentence
+      }
+      render json: error_resp, status: :unprocessable_entity
     end
   end
 
@@ -45,7 +43,7 @@ class Api::V1::DirectoriesController < ApplicationController
       render json:  { data: "Directory deleted." }, status: :ok
     else
       error_resp = {
-        error: "Directory not found and not destroyed."
+        error: "There was an error with this request."
       }
       render json: error_resp, status: :unprocessable_entity
     end

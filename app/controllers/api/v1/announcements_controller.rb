@@ -24,17 +24,15 @@ class Api::V1::AnnouncementsController < ApplicationController
   end
 
   def create
-    if logged_in?
-      @announcement = current_user.announcements.build(announcement_params)
+    @announcement = current_user.announcements.build(announcement_params)
 
-      if @announcement.save
-        render json: AnnouncementSerializer.new(@announcement), status: :created
-      else
-        error_resp = {
-          error: @announcement.errors.full_messages.to_sentence
-        }
-        render json: error_resp, status: :unprocessable_entity
-      end
+    if @announcement.save
+      render json: AnnouncementSerializer.new(@announcement), status: :created
+    else
+      error_resp = {
+        error: @announcement.errors.full_messages.to_sentence
+      }
+      render json: error_resp, status: :unprocessable_entity
     end
   end
 
@@ -54,7 +52,7 @@ class Api::V1::AnnouncementsController < ApplicationController
       render json:  { data: "Announcement deleted." }, status: :ok
     else
       error_resp = {
-        error: "Announcement not found and not destroyed."
+        error: "There was an error with this request."
       }
       render json: error_resp, status: :unprocessable_entity
     end

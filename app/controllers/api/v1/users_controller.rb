@@ -8,6 +8,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
+    user_json = UserSerializer.new(@user).serialized_json
+    # render json: user_json
     render json: @user
   end
 

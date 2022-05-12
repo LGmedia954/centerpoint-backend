@@ -20,7 +20,7 @@ class Api::V1::CategoriesController < ApplicationController
     end
 
     def category_params
-      params.require(:category).permit(:name, :directory_id)
+      params.require(:category).permit(:name, :category_id)
     end
 
 end

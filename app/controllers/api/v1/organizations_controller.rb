@@ -24,19 +24,18 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def create
-    if logged_in?
-      @organization = current_user.organizations.build(organization_params)
+    @organization = current_user.organizations.build(organization_params)
 
-      if @organization.save
-        render json: OrganizationSerializer.new(@organization), status: :created
-      else
-        error_resp = {
-          error: @organization.errors.full_messages.to_sentence
-        }
+    if @organization.save
+      render json: OrganizationSerializer.new(@organization), status: :created
+    else
+      error_resp = {
+        error: @organization.errors.full_messages.to_sentence
+      }
         render json: error_resp, status: :unprocessable_entity
-      end
     end
   end
+
 
   def update
     if @organization.update(organization_params)
@@ -54,7 +53,7 @@ class Api::V1::OrganizationsController < ApplicationController
       render json:  { data: "Organization deleted." }, status: :ok
     else
       error_resp = {
-        error: "Organization not found and not destroyed."
+        error: "There was an error with this request."
       }
       render json: error_resp, status: :unprocessable_entity
     end
