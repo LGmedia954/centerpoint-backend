@@ -9,9 +9,9 @@ class Api::V1::StaticController < ApplicationController
     end
   end
 
-  def events
+  def invite
     if logged_in?
-      render "events"
+      render "invite"
     else
       message: "Please Log In."
     end
