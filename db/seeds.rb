@@ -40,7 +40,7 @@
 
 
 
-Announcement.create(comment: "Welcome everyone. Can't wait to meet you!", user_id: 1, organization_id: 1)
+# Announcement.create(comment: "Welcome everyone. Can't wait to meet you!", user_id: 1, organization_id: 1)
 
 
 
