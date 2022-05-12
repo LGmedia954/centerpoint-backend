@@ -2,14 +2,11 @@ class CategorySerializer
   include JSONAPI::Serializer
   attributes :name
   belongs_to :directory
+  has_many :organizations, serializer: OrganizationSerializer
 
-  attribute :organizations do |category|
-    category.organizations.map do |organization|
-      {
-        name: organization.name
-      }
-    end
+  # check this
+  attribute :organizations do |category, organization|
+    category.organization.name
   end
 
-	has_many :organizations, serializer: OrganizationSerializer
 end

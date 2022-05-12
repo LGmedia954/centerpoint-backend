@@ -7856,3 +7856,62 @@ Processing by Api::V1::OrganizationsController#mybiz as */*
 Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 616)
 
 
+Started POST "/api/v1/login" for ::1 at 2022-05-12 15:49:10 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 0.8ms | Allocations: 12882)
+
+
+  
+NoMethodError (undefined method `has_and_belongs_to_many' for OrganizationSerializer:Class):
+  
+app/serializers/organization_serializer.rb:5:in `<class:OrganizationSerializer>'
+app/serializers/organization_serializer.rb:1:in `<main>'
+app/serializers/user_serializer.rb:4:in `<class:UserSerializer>'
+app/serializers/user_serializer.rb:1:in `<main>'
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for ::1 at 2022-05-12 15:49:36 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 200 OK in 191ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 724)
+
+
+Started GET "/api/v1/mybiz" for ::1 at 2022-05-12 15:49:36 -0400
+Processing by Api::V1::OrganizationsController#mybiz as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 683)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-12 15:53:44 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-12 15:54:09 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 200 OK in 191ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 653)
+
+
+Started GET "/api/v1/mybiz" for ::1 at 2022-05-12 15:54:09 -0400
+Processing by Api::V1::OrganizationsController#mybiz as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 614)
+
+
+Started GET "/api/v1/login" for ::1 at 2022-05-12 15:56:20 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/login"):
+  

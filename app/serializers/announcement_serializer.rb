@@ -1,4 +1,4 @@
-class AnnoucementSerializer
+class AnnouncementSerializer
   include JSONAPI::Serializer
   attributes :comment
   belongs_to :user
