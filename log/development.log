@@ -6740,3 +6740,189 @@ app/serializers/organization_serializer.rb:1:in `<main>'
 app/serializers/user_serializer.rb:4:in `<class:UserSerializer>'
 app/serializers/user_serializer.rb:1:in `<main>'
 app/controllers/api/v1/users_controller.rb:11:in `show'
+Started GET "/api/v1/users/1" for ::1 at 2022-05-11 20:04:34 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.2ms | Allocations: 11469)
+
+
+  
+NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007f8e4aac2f30>
+Did you mean?  serializable_hash):
+  
+app/controllers/api/v1/users_controller.rb:11:in `show'
+Started GET "/api/v1/users" for ::1 at 2022-05-11 20:04:42 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1291)
+
+
+Started GET "/api/v1/users/id;1" for ::1 at 2022-05-11 20:04:55 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"id;1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 513)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=id;1):
+  
+app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Started GET "/api/v1/users/id:1" for ::1 at 2022-05-11 20:05:04 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"id:1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms | Allocations: 495)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=id:1):
+  
+app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Started GET "/api/v1/users/:id/1" for ::1 at 2022-05-11 20:05:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users/:id/1"):
+  
+Started GET "/api/v1/users/:id/" for ::1 at 2022-05-11 20:05:29 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 481)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=:id):
+  
+app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Started GET "/api/v1/users/1" for ::1 at 2022-05-11 20:07:08 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1016)
+
+
+  
+NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007f8e4a25c418>
+Did you mean?  serializable_hash):
+  
+app/controllers/api/v1/users_controller.rb:11:in `show'
+Started GET "/api/v1/users" for ::1 at 2022-05-11 20:08:26 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 1083)
+
+
+Started GET "/api/v1/users/1" for ::1 at 2022-05-11 20:08:32 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms | Allocations: 1023)
+
+
+  
+NoMethodError (undefined method `serialized_json' for #<UserSerializer:0x00007f8e4c9992b0>
+Did you mean?  serializable_hash):
+  
+app/controllers/api/v1/users_controller.rb:11:in `show'
+Started GET "/api/v1/users/1" for ::1 at 2022-05-11 20:11:07 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 7830)
+
+
+Started GET "/api/v1/organizations/1" for ::1 at 2022-05-11 20:11:40 -0400
+Processing by Api::V1::OrganizationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:67:in `set_organization'
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations" WHERE "organizations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/organizations_controller.rb:67:in `set_organization'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 12408)
+
+
+Started GET "/api/v1/categories" for ::1 at 2022-05-11 20:12:25 -0400
+Processing by Api::V1::CategoriesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/categories_controller.rb:7:in `index'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/api/v1/categories_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 1.2ms | Allocations: 7466)
+
+
+Started GET "/api/v1/catergories/1" for ::1 at 2022-05-11 20:12:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/catergories/1"):
+  
+Started GET "/api/v1/catergories/" for ::1 at 2022-05-11 20:12:49 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/catergories"):
+  
+Started GET "/api/v1/catergories/" for ::1 at 2022-05-11 20:13:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/catergories"):
+  
+Started GET "/api/v1/catergories" for ::1 at 2022-05-11 20:13:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/catergories"):
+  
+Started GET "/api/v1/categories/1" for ::1 at 2022-05-11 20:13:29 -0400
+Processing by Api::V1::CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/categories_controller.rb:21:in `set_category'
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/categories_controller.rb:21:in `set_category'
+Completed 200 OK in 17ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 5060)
+
+
+Started GET "/api/v1/directories" for ::1 at 2022-05-11 20:14:23 -0400
+Processing by Api::V1::DirectoriesController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/directories_controller.rb:7:in `index'
+  [1m[36mDirectory Load (0.3ms)[0m  [1m[34mSELECT "directories".* FROM "directories"[0m
+  ↳ app/controllers/api/v1/directories_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 1.0ms | Allocations: 5586)
+
+
+Started GET "/api/v1/directories/1" for ::1 at 2022-05-11 20:14:29 -0400
+Processing by Api::V1::DirectoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDirectory Load (0.1ms)[0m  [1m[34mSELECT "directories".* FROM "directories" WHERE "directories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/directories_controller.rb:60:in `set_directory'
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 721)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-05-11 20:14:43 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.5ms | Allocations: 7186)
+
+
+Started GET "/api/v1/users1" for ::1 at 2022-05-11 20:14:47 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/users1"):
+  
+Started GET "/api/v1/users/1" for ::1 at 2022-05-11 20:14:51 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:45:in `set_user'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 753)
+
+

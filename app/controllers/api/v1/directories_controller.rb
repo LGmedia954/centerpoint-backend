@@ -8,9 +8,7 @@ class Api::V1::DirectoriesController < ApplicationController
   end
 
   def show
-    directory_json = DirectorySerializer.new(@directory).serialized_json
-
-    render json: directory_json
+    render json: @directory
   end
 
   # Business Directory is our default listing.

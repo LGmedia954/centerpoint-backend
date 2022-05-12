@@ -8,9 +8,7 @@ class Api::V1::CategoriesController < ApplicationController
   end
 
   def show
-    category_json = CategorySerializer.new(@category).serialized_json
-
-    render json: category_json
+    render json: @category
   end
 
   # Categories are pre-seeded for 20. I do not expect this to change.
