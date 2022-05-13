@@ -13,13 +13,13 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
 
-# test
+  # test
   def get_current_user
     if logged_in?
-      render json: UserSerializer.new(current_user)
+      render json: UserSerializer.new(@user), status: :ok
     else
       render json: {
-        error: "Not Logged In."
+        # error: "Not Logged In."
       }
     end
   end

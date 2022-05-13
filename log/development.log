@@ -8103,3 +8103,100 @@ Did you mean?  organizations
   
 app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
 app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started POST "/api/v1/login" for ::1 at 2022-05-13 06:20:54 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 218ms (Views: 8.4ms | ActiveRecord: 1.5ms | Allocations: 17049)
+
+
+Started GET "/api/v1/mybiz" for ::1 at 2022-05-13 06:20:54 -0400
+Processing by Api::V1::OrganizationsController#mybiz as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 676)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-13 06:21:46 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-13 06:25:17 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 191ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1419)
+
+
+Started GET "/api/v1/mybiz" for ::1 at 2022-05-13 06:25:17 -0400
+Processing by Api::V1::OrganizationsController#mybiz as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 614)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-13 06:31:34 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 97)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-13 07:16:09 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 6123)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-13 07:16:17 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 626)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-13 07:16:47 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 211ms (Views: 8.0ms | ActiveRecord: 1.3ms | Allocations: 13453)
+
+
+Started GET "/api/v1/mybiz" for ::1 at 2022-05-13 07:16:48 -0400
+Processing by Api::V1::OrganizationsController#mybiz as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 645)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-13 07:18:47 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 97)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-13 07:18:52 -0400
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 626)
+
+
