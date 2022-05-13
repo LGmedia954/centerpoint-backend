@@ -8085,3 +8085,21 @@ Processing by Api::V1::OrganizationsController#mybiz as */*
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 675)
 
 
+Started POST "/api/v1/login" for ::1 at 2022-05-13 06:16:30 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 221ms (ActiveRecord: 0.7ms | Allocations: 14414)
+
+
+  
+NoMethodError (undefined method `organization' for #<User:0x00007ff170a998b8>
+Did you mean?  organizations
+               organizations=
+               organization_id):
+  
+app/serializers/user_serializer.rb:8:in `block in <class:UserSerializer>'
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
