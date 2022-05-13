@@ -14,7 +14,7 @@ class Api::V1::OrganizationsController < ApplicationController
       render json: OrganizationSerializer.new(@organizations)
     else
       render json: {
-        error: "You must be logged in to access this."
+        error: "You must be logged in to access business details."
       }
     end
   end
