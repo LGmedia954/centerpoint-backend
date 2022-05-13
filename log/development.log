@@ -7915,3 +7915,109 @@ Started GET "/api/v1/login" for ::1 at 2022-05-12 15:56:20 -0400
   
 ActionController::RoutingError (No route matches [GET] "/api/v1/login"):
   
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-12 16:22:29 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 3132)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-12 16:22:41 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 0.8ms | Allocations: 13048)
+
+
+  
+NoMethodError (undefined method `has_and_belongs_to_many' for OrganizationSerializer:Class):
+  
+app/serializers/organization_serializer.rb:5:in `<class:OrganizationSerializer>'
+app/serializers/organization_serializer.rb:1:in `<main>'
+app/serializers/user_serializer.rb:4:in `<class:UserSerializer>'
+app/serializers/user_serializer.rb:1:in `<main>'
+app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Started GET "/api/v1/users" for ::1 at 2022-05-12 18:05:59 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 1.0ms | Allocations: 10831)
+
+
+Started GET "/api/v1/categories" for ::1 at 2022-05-12 18:06:14 -0400
+Processing by Api::V1::CategoriesController#index as HTML
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/api/v1/categories_controller.rb:7:in `index'
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.7ms | Allocations: 6775)
+
+
+Started GET "/api/v1/announcements" for ::1 at 2022-05-12 18:06:35 -0400
+Processing by Api::V1::AnnouncementsController#index as HTML
+  [1m[36mAnnouncement Load (0.4ms)[0m  [1m[34mSELECT "announcements".* FROM "announcements"[0m
+  ↳ app/controllers/api/v1/announcements_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.8ms | Allocations: 4555)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-12 18:06:46 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[36mOrganization Load (0.4ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 0.8ms | Allocations: 11255)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-05-12 18:07:06 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms | Allocations: 1084)
+
+
+Started GET "/api/v1/directories" for ::1 at 2022-05-12 18:07:12 -0400
+Processing by Api::V1::DirectoriesController#index as HTML
+  [1m[36mDirectory Load (0.3ms)[0m  [1m[34mSELECT "directories".* FROM "directories"[0m
+  ↳ app/controllers/api/v1/directories_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.8ms | Allocations: 4733)
+
+
+Started GET "/api/v1/categories" for ::1 at 2022-05-12 18:07:20 -0400
+Processing by Api::V1::CategoriesController#index as HTML
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/api/v1/categories_controller.rb:7:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2943)
+
+
+Started GET "/api/v1/announcements" for ::1 at 2022-05-12 18:07:26 -0400
+Processing by Api::V1::AnnouncementsController#index as HTML
+  [1m[36mAnnouncement Load (0.1ms)[0m  [1m[34mSELECT "announcements".* FROM "announcements"[0m
+  ↳ app/controllers/api/v1/announcements_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.1ms | Allocations: 703)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-12 18:07:31 -0400
+Processing by Api::V1::OrganizationsController#index as HTML
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 808)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-12 20:20:30 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 0.7ms | Allocations: 8929)
+
+
+  
+NoMethodError (undefined method `has_and_belongs_to_many' for OrganizationSerializer:Class):
+  
+app/serializers/organization_serializer.rb:5:in `<class:OrganizationSerializer>'
+app/serializers/organization_serializer.rb:1:in `<main>'
+app/serializers/user_serializer.rb:4:in `<class:UserSerializer>'
+app/serializers/user_serializer.rb:1:in `<main>'
+app/controllers/api/v1/sessions_controller.rb:8:in `create'

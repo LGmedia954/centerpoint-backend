@@ -1,6 +1,6 @@
 class Organization < ApplicationRecord
-  # belongs_to :user
-	has_and_belongs_to_many :users
+	# has_and_belongs_to_many :users
+	belongs_to :user, optional: true
 	belongs_to :category
 	has_many :announcements
 
