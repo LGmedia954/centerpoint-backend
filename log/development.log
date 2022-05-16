@@ -9491,3 +9491,129 @@ Processing by Api::V1::OrganizationsController#index as */*
 Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1408)
 
 
+Started GET "/api/v1/organizations" for ::1 at 2022-05-13 17:11:09 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrganizationsController#index as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 1.3ms | Allocations: 10048)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-13 17:11:32 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 209ms (Views: 6.9ms | ActiveRecord: 1.0ms | Allocations: 10541)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-13 17:11:32 -0400
+Processing by Api::V1::OrganizationsController#index as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 815)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-13 17:16:10 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-13 17:16:30 -0400
+Processing by Api::V1::OrganizationsController#index as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 815)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-13 18:07:04 -0400
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-13 18:07:04 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::OrganizationsController#index as */*
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.5ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Completed 200 OK in 20ms (Views: 13.0ms | ActiveRecord: 0.9ms | Allocations: 11950)
+
+
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 11887)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-13 18:07:46 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 209ms (Views: 6.1ms | ActiveRecord: 1.0ms | Allocations: 11003)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-13 18:07:46 -0400
+Processing by Api::V1::OrganizationsController#index as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 848)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-13 18:29:13 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 245)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-16 12:04:40 -0400
+Started GET "/api/v1/organizations" for ::1 at 2022-05-16 12:04:40 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as */*
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::OrganizationsController#index as */*
+  Parameters: {"organization"=>{}}
+Completed 200 OK in 32ms (Views: 18.9ms | ActiveRecord: 0.4ms | Allocations: 5541)
+
+
+  [1m[36mOrganization Load (0.3ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.2ms | Allocations: 8278)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-16 12:04:55 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 204ms (Views: 6.6ms | ActiveRecord: 0.6ms | Allocations: 8174)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-16 12:04:55 -0400
+Processing by Api::V1::OrganizationsController#index as */*
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 815)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-16 12:31:45 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 0ms (Views: 0.1ms | Allocations: 246)
+
+
