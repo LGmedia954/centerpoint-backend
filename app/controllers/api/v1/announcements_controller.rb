@@ -49,7 +49,14 @@ class Api::V1::AnnouncementsController < ApplicationController
   end
 
   def destroy
-    @announcement.destroy
+    if @announcement.destroy
+      render json:  { data: "Announcement deleted." }, status: :ok
+    else
+      error_resp = {
+        error: "Not found."
+      }
+      render json: error_resp, status: :unprocessable_entity
+    end
   end
 
   private

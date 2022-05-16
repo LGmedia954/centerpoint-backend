@@ -24,6 +24,7 @@ class Api::V1::OrganizationsController < ApplicationController
   end
 
   def create
+    # byebug
     @organization = current_user.organizations.build(organization_params)
 
     if @organization.save
