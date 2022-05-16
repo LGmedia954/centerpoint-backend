@@ -36,14 +36,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    # @user.destroy
-    @user = User.find(params[:id])
-
-    if @user.destroy
-      render json: UserSerializer.new(@user)
-    else
-      render json: { errors: @users.errors.full_messages }
-    end
+    @user.destroy
   end
 
   private

@@ -14,7 +14,7 @@ class Api::V1::AnnouncementsController < ApplicationController
       render json: AnnouncementSerializer.new(@announcements)
     else
       render json: {
-        error: "You must be logged in to access this."
+        error: "You must be logged in to view announcements."
       }
     end
   end
@@ -24,10 +24,11 @@ class Api::V1::AnnouncementsController < ApplicationController
   end
 
   def create
+    #byebug
     @announcement = current_user.announcements.build(announcement_params)
 
     if @announcement.save
-      render json: AnnouncementSerializer.new(@announcement), status: :created
+      render json:  AnnouncementSerializer.new(@announcement), status: :created
     else
       error_resp = {
         error: @announcement.errors.full_messages.to_sentence
@@ -48,14 +49,7 @@ class Api::V1::AnnouncementsController < ApplicationController
   end
 
   def destroy
-    if @announcement.destroy
-      render json:  { data: "Announcement deleted." }, status: :ok
-    else
-      error_resp = {
-        error: "There was an error with this request."
-      }
-      render json: error_resp, status: :unprocessable_entity
-    end
+    @announcement.destroy
   end
 
   private

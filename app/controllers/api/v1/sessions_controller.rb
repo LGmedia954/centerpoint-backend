@@ -1,5 +1,4 @@
 class Api::V1::SessionsController < ApplicationController
-
   def create
     @user = User.find_by(email: params[:session][:email])
 
@@ -27,7 +26,7 @@ class Api::V1::SessionsController < ApplicationController
   def destroy
     session.clear
     render json: {
-      notice: "Successfully Logged Out."
+      notice: "Successfully logged out."
     }, status: :ok
   end
   

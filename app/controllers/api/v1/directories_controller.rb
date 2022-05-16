@@ -39,14 +39,7 @@ class Api::V1::DirectoriesController < ApplicationController
   end
 
   def destroy
-    if @directory.destroy
-      render json:  { data: "Directory deleted." }, status: :ok
-    else
-      error_resp = {
-        error: "There was an error with this request."
-      }
-      render json: error_resp, status: :unprocessable_entity
-    end
+    @directory.destroy
   end
 
   private
