@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     @users = User.all
 
     # render json: @users
-    render json: UserSerializer.new(@users).serialized_json
+    render json: UserSerializer.new(@users)
   end
 
   def show
