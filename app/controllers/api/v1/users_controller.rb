@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     #render json: @user
-    user_json = UserSerializer.new(@user).serialized_json
+    user_json = UserSerializer.new(@user)
     render json: user_json
   end
 
