@@ -63,7 +63,7 @@ class Api::V1::AnnouncementsController < ApplicationController
 
     def set_announcement
       # @announcement = Announcement.find(params[:id])
-      @organization = Announcement.find_or_create_by(id: params[:id])
+      @announcement = Announcement.find_or_create_by(id: params[:id])
     end
 
     def announcement_params
