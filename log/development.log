@@ -11447,3 +11447,306 @@ Started GET "/socketcluster/" for ::1 at 2022-05-17 10:01:49 -0400
   
 ActionController::RoutingError (No route matches [GET] "/socketcluster"):
   
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:23:00 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 10:23:11 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:19:in `get_current_user'
+Completed 200 OK in 136ms (Views: 26.2ms | ActiveRecord: 1.8ms | Allocations: 14578)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-17 10:23:11 -0400
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.2ms | Allocations: 7435)
+
+
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:24:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:25:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:26:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:27:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:28:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:29:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:30:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:31:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:32:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:33:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:34:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:35:02 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:36:03 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:37:04 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 10:38:05 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 10:58:16 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 54ms (Views: 14.3ms | ActiveRecord: 0.3ms | Allocations: 6213)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 10:58:50 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 694)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 10:58:50 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 694)
+
+
+Started GET "/api/v1/users" for ::1 at 2022-05-17 10:59:49 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.6ms | Allocations: 5632)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 11:00:24 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 688)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-17 11:00:33 -0400
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 246ms (Views: 26.3ms | ActiveRecord: 0.9ms | Allocations: 9094)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-17 11:00:34 -0400
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 7415)
+
+
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:00:41 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 11:27:00 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:19:in `get_current_user'
+Completed 200 OK in 87ms (Views: 42.5ms | ActiveRecord: 1.7ms | Allocations: 16674)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-17 11:27:00 -0400
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 7434)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-17 11:27:31 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 11:27:40 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 804)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-17 11:28:22 -0400
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"lgworldcom@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lgworldcom@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:8:in `create'
+Completed 200 OK in 192ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1697)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-17 11:28:22 -0400
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.1ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 813)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 11:40:43 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "organizations"."id" FROM "organizations" WHERE "organizations"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:19:in `get_current_user'
+Completed 200 OK in 207ms (Views: 31.8ms | ActiveRecord: 1.6ms | Allocations: 16572)
+
+
+Started GET "/api/v1/organizations" for ::1 at 2022-05-17 11:40:43 -0400
+Processing by Api::V1::OrganizationsController#index as JSON
+  Parameters: {"organization"=>{}}
+  [1m[36mOrganization Load (0.2ms)[0m  [1m[34mSELECT "organizations".* FROM "organizations"[0m
+  ↳ app/controllers/api/v1/organizations_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.2ms | Allocations: 7434)
+
+
+Started DELETE "/api/v1/logout" for ::1 at 2022-05-17 11:40:49 -0400
+Processing by Api::V1::SessionsController#destroy as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 11:40:54 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 817)
+
+
+Started POST "/api/v1/login" for ::1 at 2022-05-17 11:41:12 -0400
+Processing by Api::V1::SessionsController#create as JSON
+  Parameters: {"email"=>"hns69@aol.com", "password"=>"[FILTERED]", "session"=>{"email"=>"hns69@aol.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "hns69@aol.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/sessions_controller.rb:4:in `create'
+Completed 200 OK in 190ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 684)
+
+
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:41:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:41:41 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:42:01 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:42:38 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:43:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:44:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:45:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:46:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:47:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:48:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:49:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/socketcluster/" for ::1 at 2022-05-17 11:50:25 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/socketcluster"):
+  
+Started GET "/api/v1/get_current_user" for ::1 at 2022-05-17 11:51:28 -0400
+Processing by Api::V1::SessionsController#get_current_user as JSON
+  Parameters: {"session"=>{}}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `current_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 3867)
+
+

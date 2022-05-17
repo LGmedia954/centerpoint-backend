@@ -17,6 +17,11 @@ Rails.application.routes.draw do
       resources :directories
       resources :categories
       resources :announcements
+
+      resources :users do
+        resources :organizations, only: [:new, :create, :index, :show, :destroy]
+      end
+
       resources :organizations
       resources :users
 

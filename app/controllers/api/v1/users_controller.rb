@@ -4,7 +4,8 @@ class Api::V1::UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    # render json: @users
+    render json: UserSerializer.new(@users).serialized_json
   end
 
   def show
@@ -36,7 +37,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    # @user.destroy
+    @user = User.find(params[:id])
+
+    if @user.destroy
+      render json: UserSerializer.new(@user)
+    else
+      render json: { errors: @users.errors.full_messages }
+    end
   end
 
   private
