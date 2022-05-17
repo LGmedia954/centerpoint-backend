@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
 
-  # post "/api/v1/login", to: "api/v1/sessions#create"
-  match "/api/v1/login", to: "api/v1/sessions#create", via: [:get, :post]
+  post "/api/v1/login", to: "api/v1/sessions#create"
   post "/api/v1/signup", to: "api/v1/users#create"
   delete "/api/v1/logout", to: "api/v1/sessions#destroy"
-  # get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
-  match "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user", via: [:get, :post]
-
+  get "/api/v1/get_current_user", to: "api/v1/sessions#get_current_user"
+  
   get "/api/v1/mybiz", to: "api/v1/organizations#mybiz"
   get "/api/v1/about", to: "api/v1/static#about"
   get "/api/v1/contact", to: "api/v1/static#contact"
   get "/api/v1/invite", to: "api/v1/static#invite"
 
-  # match '*path', :to => 'application#routing_error'
+  # match "*path", :to => "application#routing_error"
 
   namespace :api do
     namespace :v1 do
